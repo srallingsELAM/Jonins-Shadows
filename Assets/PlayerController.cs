@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {   public GameObject groundChecker;
     public LayerMask whatIsGround;
     
@@ -33,6 +33,11 @@ public class NewBehaviourScript : MonoBehaviour
 
         //Check to see if the ground check object is touching the ground
         isOnGround = Physics2D.OverlapCircle(groundChecker.transform.position, 1.0f, whatIsGround);
+
+       if (Input.GetKeyDown(KeyCode.Space) && isOnGround == true)
+        {
+            playerObject.AddForce(new Vector2(0.0f, 100.0f));
+        }
 
     }
 } 
